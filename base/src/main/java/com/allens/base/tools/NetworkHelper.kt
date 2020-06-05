@@ -9,12 +9,15 @@ import androidx.fragment.app.Fragment
 
 
 //网络检测
+//原本想 用非单利的方式   每个activity 都自行注册，但是放弃了
+//原因 其实功能都一样，如果非单利模式 使用 lifecycle 那么如果多个activity 都需要注册的话 就会消耗更多的内存
 object NetworkHelper {
 
     private lateinit var receiver: NetworkChangeReceiver
 
     private lateinit var context: Context
 
+    //建议放在 application 中  使用 liveData 自行分发
     fun register(context: Context, listener: OnNetWorkListener) {
         this.context = context
         val intentFilter = IntentFilter()
