@@ -1,0 +1,50 @@
+apply plugin: 'kotlin-kapt'
+ext {
+
+    dependencies {
+
+        //==========================================================================================
+        // kotlin ktx
+        // https://developer.android.google.cn/kotlin/ktx
+        //==========================================================================================
+        implementation 'androidx.core:core-ktx:1.3.0'
+
+
+        //==========================================================================================
+        //lifecycle
+        //https://developer.android.google.cn/jetpack/androidx/releases/lifecycle#declaring_dependencies
+        //==========================================================================================
+        def lifecycle_version = "2.3.0-alpha03"
+        // ViewModel
+        implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+
+
+
+
+        // LiveData
+//        implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+        // Lifecycles only (without ViewModel or LiveData)
+//        implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
+        //java8
+//        implementation "android.arch.lifecycle:common-java8:$lifecycle_version"
+
+        //==========================================================================================
+        // 协程
+        // https://developer.android.google.cn/topic/libraries/architecture/coroutines
+        //==========================================================================================
+//        implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.0-alpha03'
+//        implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.0-alpha03'
+//        implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.0-alpha03'
+//        implementation 'androidx.lifecycle:lifecycle-common:2.3.0-alpha03'
+
+
+        //==========================================================================================
+        // 事件总线
+        // https://github.com/JeremyLiao/LiveEventBus
+        //==========================================================================================
+//        implementation 'com.jeremyliao:live-event-bus-x:1.6.1'
+
+
+
+    }
+}
