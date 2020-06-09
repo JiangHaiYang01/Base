@@ -17,7 +17,7 @@ abstract class BaseActivity : AppCompatActivity(),
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val contentId = getContentViewId()
-        if (contentId != 0) {
+        if (contentId != -1) {
             setContentView(contentId)
         }
         initOnCreate()
