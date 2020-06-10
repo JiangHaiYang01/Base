@@ -1,10 +1,11 @@
 package com.allens.base
 
 import android.app.Application
+import com.allens.base.baseProvider.BaseApplication
 import com.allens.lib_http2.RxHttp
 import com.allens.lib_http2.config.HttpLevel
 
-class MyApplication : Application() {
+class MyApplication : BaseApplication() {
 
     companion object {
         lateinit var rxHttp: RxHttp

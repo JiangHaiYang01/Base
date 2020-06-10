@@ -1,5 +1,6 @@
 package com.allens.base.login
 
+import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
