@@ -14,6 +14,10 @@ class MainActivity : AppCompatActivity() {
         btn_GoToLogin.setOnClickListener {
             startActivity(Intent(this, LoginAct::class.java))
         }
+
+        btn_GoToFragment.setOnClickListener {
+            startActivity(Intent(this, TestActivity::class.java))
+        }
     }
 
 

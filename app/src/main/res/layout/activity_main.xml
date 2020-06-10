@@ -11,7 +11,17 @@
         android:layout_width="match_parent"
         android:id="@+id/btn_GoToLogin"
         android:layout_height="wrap_content"
-        android:text="登录界面"
+        android:text="登录界面（Activity 中使用）"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:id="@+id/btn_GoToFragment"
+        android:layout_height="wrap_content"
+        android:text="Fragment中使用"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

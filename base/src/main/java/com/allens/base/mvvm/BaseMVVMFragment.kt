@@ -36,14 +36,12 @@ abstract class BaseMVVMFragment<V : ViewDataBinding, RE : BaseRepos, VM : BaseVM
         dataBind = DataBindingUtil.inflate(inflater, getContentViewId(), container, false)
         //用LiveData配合DataBinding的话，要手动将生成的Binding布局类和LifecycleOwner关联起来
         dataBind.lifecycleOwner = this
-        return dataBind.root
-    }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+
         initBindDataBing()
         initCreate()
         initLiveData()
+        return dataBind.root
     }
 
 }

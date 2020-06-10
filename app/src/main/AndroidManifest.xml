@@ -19,6 +19,7 @@
         </activity>
 
         <activity android:name=".login.LoginAct" />
+        <activity android:name=".TestActivity" />
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />
