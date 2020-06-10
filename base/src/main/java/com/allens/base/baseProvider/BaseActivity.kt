@@ -30,7 +30,7 @@ abstract class BaseActivity : AppCompatActivity(),
 
     //是否设置沉寂式
     open fun setStatusBarHide(): Boolean {
-        return false
+        return true
     }
 
     //手势 （目前有 放大 缩小）

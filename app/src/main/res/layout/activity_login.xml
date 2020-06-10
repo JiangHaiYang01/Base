@@ -58,7 +58,7 @@
 
         <ImageView
             android:id="@+id/login_img_delete"
-            visible="@{viewModel.repos.logInModel.userName.length()>0}"
+            visible="@{viewModel.userName.length()>0}"
             android:layout_width="23dp"
             android:layout_height="23dp"
             android:layout_marginEnd="10dp"
@@ -70,7 +70,7 @@
 
         <EditText
             android:id="@+id/et_pwd"
-            transformationMethod="@{viewModel.repos.logInModel.pwdCanShow.booleanValue()}"
+            transformationMethod="@{viewModel.pwdCanShow.booleanValue()}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="29dp"
@@ -103,7 +103,7 @@
             android:layout_height="23dp"
             android:layout_marginEnd="10dp"
             android:contentDescription="@null"
-            android:src="@{viewModel.repos.logInModel.pwdCanShow.booleanValue() ? @drawable/ic_login_pwd_show : @drawable/ic_login_pwd_hint,default=@drawable/ic_login_pwd_hint}"
+            android:src="@{viewModel.pwdCanShow.booleanValue() ? @drawable/ic_login_pwd_show : @drawable/ic_login_pwd_hint,default=@drawable/ic_login_pwd_hint}"
             app:layout_constraintRight_toRightOf="@+id/login_phone_view"
             app:layout_constraintTop_toTopOf="@+id/et_pwd" />
 
@@ -114,7 +114,7 @@
             android:layout_height="40dp"
             android:layout_marginTop="48dp"
             android:background="@drawable/res_bg_radius_blue"
-            android:clickable="@{viewModel.repos.logInModel.loginClickAble.booleanValue()}"
+            android:clickable="@{viewModel.loginClickAble.booleanValue()}"
             android:gravity="center"
             android:text="@string/login"
             android:textColor="#ffffff"

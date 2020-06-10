@@ -32,28 +32,28 @@ class LoginAct : BaseMVVMActivity<ActivityLoginBinding, LoginRepos, LoginViewMod
         }
 
         et_phone.afterTextChanged {
-            viewModel.repos.logInModel.userName.value = it
+            viewModel.userName.value = it
             checkLoginClickable()
         }
 
         et_pwd.afterTextChanged {
-            viewModel.repos.logInModel.pwd.value = it
+            viewModel.pwd.value = it
             checkLoginClickable()
         }
 
         login_img_show.setOnClickListener {
-            val value = viewModel.repos.logInModel.pwdCanShow.value
+            val value = viewModel.pwdCanShow.value
             if (value != null) {
-                viewModel.repos.logInModel.pwdCanShow.value = !value
+                viewModel.pwdCanShow.value = !value
             }
         }
     }
 
 
     private fun checkLoginClickable() {
-        val name = viewModel.repos.logInModel.userName.value
-        val pwd = viewModel.repos.logInModel.pwd.value
-        viewModel.repos.logInModel.loginClickAble.value =
+        val name = viewModel.userName.value
+        val pwd = viewModel.pwd.value
+        viewModel.loginClickAble.value =
             !(name.isNullOrEmpty() || pwd.isNullOrEmpty())
     }
 
@@ -71,7 +71,7 @@ class LoginAct : BaseMVVMActivity<ActivityLoginBinding, LoginRepos, LoginViewMod
     }
 
     override fun initLiveData() {
-        viewModel.repos.logInModel.loginData.observe(this, Observer {
+        viewModel.loginData.observe(this, Observer {
             when (it) {
                 null -> {
                     Toast.makeText(this, "failed", Toast.LENGTH_SHORT).show()
@@ -90,8 +90,12 @@ class LoginRepos : BaseRepos() {
 
     var logInModel = LoginModel()
 
-    suspend fun login(userName: String, pwd: String) {
-        logInModel.login(userName, pwd)
+    suspend fun login(
+        userName: String,
+        pwd: String,
+        loginData: MutableLiveData<LogInBean>
+    ) {
+        logInModel.login(userName, pwd, loginData)
     }
 
 
@@ -100,17 +104,6 @@ class LoginRepos : BaseRepos() {
 
 class LoginViewModel : BaseVM<LoginRepos>() {
 
-
-    fun login(userName: String, pwd: String) {
-        viewModelScope.launch {
-            repos.login(userName, pwd)
-        }
-    }
-
-}
-
-
-class LoginModel : BaseModel() {
 
     var userName = MutableLiveData<String>()
     var pwd = MutableLiveData<String>()
@@ -129,7 +122,23 @@ class LoginModel : BaseModel() {
     var loginData = MutableLiveData<LogInBean>()
 
 
-    suspend fun login(userName: String, pwd: String) {
+    fun login(userName: String, pwd: String) {
+        viewModelScope.launch {
+            repos.login(userName, pwd, loginData)
+        }
+    }
+
+}
+
+
+class LoginModel : BaseModel() {
+
+
+    suspend fun login(
+        userName: String,
+        pwd: String,
+        loginData: MutableLiveData<LogInBean>
+    ) {
 
         val result = MyApplication.rxHttp
             .create()

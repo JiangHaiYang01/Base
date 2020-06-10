@@ -7,6 +7,8 @@ apply plugin: 'kotlin-android-extensions'
 apply from: 'config.gradle'
 //编译配置
 apply from: '../config_compile.gradle'
+//maven 脚本
+apply from: 'maven.gradle'
 
 android{
     //==========================================================================================
