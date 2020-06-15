@@ -41,9 +41,6 @@ class TestFragment : BaseMVVMFragment<FragmentTestBinding, TestRepos, TestViewMo
 
     override fun initLiveData() {
     }
-
-    override fun initOnCreate() {
-    }
 }
 
 

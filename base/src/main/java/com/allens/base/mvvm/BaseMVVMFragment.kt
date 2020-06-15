@@ -44,4 +44,8 @@ abstract class BaseMVVMFragment<V : ViewDataBinding, RE : BaseRepos, VM : BaseVM
         return dataBind.root
     }
 
+    override fun initOnCreate() {
+
+    }
+
 }
