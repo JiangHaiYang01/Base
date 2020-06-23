@@ -18,6 +18,10 @@ class MainActivity : AppCompatActivity() {
         btn_GoToFragment.setOnClickListener {
             startActivity(Intent(this, FragmentActivity::class.java))
         }
+
+        btn_gestures.setOnClickListener {
+            startActivity(Intent(this, GesturesAct::class.java))
+        }
     }
 
 

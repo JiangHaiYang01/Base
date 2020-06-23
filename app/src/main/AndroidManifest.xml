@@ -20,6 +20,7 @@
 
         <activity android:name=".activity.LoginAct" />
         <activity android:name=".activity.FragmentActivity" />
+        <activity android:name=".activity.GesturesAct" />
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />
