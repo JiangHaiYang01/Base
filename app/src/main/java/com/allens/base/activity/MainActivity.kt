@@ -1,9 +1,9 @@
-package com.allens.base
+package com.allens.base.activity
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.allens.base.login.LoginAct
+import com.allens.base.R
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         btn_GoToFragment.setOnClickListener {
-            startActivity(Intent(this, TestActivity::class.java))
+            startActivity(Intent(this, FragmentActivity::class.java))
         }
     }
 

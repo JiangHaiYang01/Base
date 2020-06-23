@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".activity.MainActivity">
 
     <Button
         android:layout_width="match_parent"
         android:id="@+id/btn_GoToLogin"
         android:layout_height="wrap_content"
-        android:text="登录界面（Activity 中使用）"
+        android:text="Activity 中使用"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -21,7 +21,7 @@
         android:layout_width="match_parent"
         android:id="@+id/btn_GoToFragment"
         android:layout_height="wrap_content"
-        android:text="Fragment中使用"
+        android:text="Fragment 中使用"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

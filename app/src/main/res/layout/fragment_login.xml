@@ -7,18 +7,18 @@
 
         <variable
             name="viewModel"
-            type="com.allens.base.activity.LoginViewModel" />
+            type="com.allens.base.fragment.LoginFragmentViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/act_login_parent"
+        android:id="@+id/fg_login_parent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
 
         <ImageView
-            android:id="@+id/act_login_img_icon"
+            android:id="@+id/fg_login_img_icon"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:src="@mipmap/ic_launcher"
@@ -42,7 +42,7 @@
             android:textCursorDrawable="@drawable/res_ed_cursor"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/act_login_img_icon"
+            app:layout_constraintTop_toBottomOf="@+id/fg_login_img_icon"
             tools:ignore="TextFields" />
 
         <View

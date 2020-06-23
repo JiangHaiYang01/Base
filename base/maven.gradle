@@ -1,11 +1,11 @@
 apply plugin: 'maven'
 ext {
     //maven仓库路径
-    REPOS_PATH = "/Users/allens/Documents/model/maven/"
+    REPOS_PATH = "/Users/jhy/Documents/model/maven/"
     //group
     PUBLISH_GROUP_ID = 'com.allens'
     //包名
-    PUBLISH_ARTIFACT_ID = 'base'
+    PUBLISH_ARTIFACT_ID = 'BaseMvvM'
     //版本
     PUBLISH_VERSION = '0.0.2'
 

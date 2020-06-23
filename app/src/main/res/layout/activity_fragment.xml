@@ -5,7 +5,7 @@
 
     <fragment
         android:id="@+id/fg"
-        android:name="com.allens.base.fragment.TestFragment"
+        android:name="com.allens.base.fragment.LoginFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 

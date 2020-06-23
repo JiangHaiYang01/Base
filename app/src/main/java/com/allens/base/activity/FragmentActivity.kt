@@ -1,9 +1,10 @@
-package com.allens.base
+package com.allens.base.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.allens.base.R
 
-class TestActivity :AppCompatActivity(){
+class FragmentActivity :AppCompatActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

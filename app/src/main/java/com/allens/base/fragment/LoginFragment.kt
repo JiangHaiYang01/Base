@@ -1,27 +1,37 @@
-package com.allens.base.login
-
-import android.util.Log
+package com.allens.base.fragment
 import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.viewModelScope
-import com.allens.base.MyApplication
 import com.allens.base.R
+import com.allens.base.activity.LoginModel
 import com.allens.base.adapters.afterTextChanged
 import com.allens.base.bean.LogInBean
-import com.allens.base.databinding.ActivityLoginBinding
-import com.allens.base.mvvm.BaseMVVMActivity
-import com.allens.base.mvvm.BaseModel
+import com.allens.base.databinding.FragmentLoginBinding
+import com.allens.base.mvvm.BaseMVVMFragment
 import com.allens.base.mvvm.BaseRepos
 import com.allens.base.mvvm.BaseVM
-import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.fragment_login.*
 import kotlinx.coroutines.launch
 
-class LoginAct : BaseMVVMActivity<ActivityLoginBinding, LoginRepos, LoginViewModel>() {
+class LoginFragment :
+    BaseMVVMFragment<FragmentLoginBinding, LogInFragmentRepos, LoginFragmentViewModel>() {
+
+    override fun createRepos(): LogInFragmentRepos {
+        return LogInFragmentRepos()
+    }
+
+    override fun createVMClass(): Class<LoginFragmentViewModel> {
+        return LoginFragmentViewModel::class.java
+    }
+
+    override fun getContentViewId(): Int {
+        return R.layout.fragment_login
+    }
+
     override fun initBindDataBing() {
         dataBind.viewModel = viewModel
     }
-
 
     override fun initCreate() {
         login_btn_login.setOnClickListener {
@@ -50,7 +60,6 @@ class LoginAct : BaseMVVMActivity<ActivityLoginBinding, LoginRepos, LoginViewMod
         }
     }
 
-
     private fun checkLoginClickable() {
         val name = viewModel.userName.value
         val pwd = viewModel.pwd.value
@@ -58,38 +67,23 @@ class LoginAct : BaseMVVMActivity<ActivityLoginBinding, LoginRepos, LoginViewMod
             !(name.isNullOrEmpty() || pwd.isNullOrEmpty())
     }
 
-
-    override fun getContentViewId(): Int {
-        return R.layout.activity_login
-    }
-
-    override fun createRepos(): LoginRepos {
-        return LoginRepos()
-    }
-
-    override fun createVMClass(): Class<LoginViewModel> {
-        return LoginViewModel::class.java
-    }
-
     override fun initLiveData() {
         viewModel.loginData.observe(this, Observer {
             when (it) {
                 null -> {
-                    Toast.makeText(this, "failed", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(activity, "failed", Toast.LENGTH_SHORT).show()
                 }
                 else -> {
-                    Toast.makeText(this, "success", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(activity, "success", Toast.LENGTH_SHORT).show()
                 }
             }
         })
     }
-
 }
 
 
-class LoginRepos : BaseRepos() {
-
-    var logInModel = LoginModel()
+class LogInFragmentRepos : BaseRepos() {
+    private var logInModel = LoginModel()
 
     suspend fun login(
         userName: String,
@@ -98,14 +92,10 @@ class LoginRepos : BaseRepos() {
     ) {
         logInModel.login(userName, pwd, loginData)
     }
-
-
 }
 
 
-class LoginViewModel : BaseVM<LoginRepos>() {
-
-
+class LoginFragmentViewModel : BaseVM<LogInFragmentRepos>() {
     var userName = MutableLiveData<String>()
     var pwd = MutableLiveData<String>()
 
@@ -127,33 +117,5 @@ class LoginViewModel : BaseVM<LoginRepos>() {
         viewModelScope.launch {
             repos.login(userName, pwd, loginData)
         }
-    }
-
-}
-
-
-class LoginModel : BaseModel() {
-
-
-    suspend fun login(
-        userName: String,
-        pwd: String,
-        loginData: MutableLiveData<LogInBean>
-    ) {
-
-        val result = MyApplication.rxHttp
-            .create()
-            .addParameter("username", userName)
-            .addParameter("password", pwd)
-            .doPost("user/login", LogInBean::class.java)
-        MyApplication.rxHttp
-            .checkResult(
-                result, {
-                    loginData.value = it
-                },
-                {
-                    loginData.value = null
-                })
-
     }
 }

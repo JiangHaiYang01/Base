@@ -13,6 +13,7 @@ class MyApplication : BaseApplication() {
 
     override fun onCreate() {
         super.onCreate()
+        //构建网络请求框架，不是此框架的重点
         rxHttp = RxHttp.Builder()
             .baseUrl("https://www.wanandroid.com")
             .isLog(true)

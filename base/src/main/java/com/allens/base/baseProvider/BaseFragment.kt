@@ -22,11 +22,6 @@ abstract class BaseFragment : Fragment(),
         return inflate
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        initOnCreate()
-    }
-
 
     abstract fun bindView(
         inflater: LayoutInflater,
