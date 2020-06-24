@@ -22,6 +22,10 @@ class MainActivity : AppCompatActivity() {
         btn_gestures.setOnClickListener {
             startActivity(Intent(this, GesturesAct::class.java))
         }
+
+        btn_status.setOnClickListener {
+            startActivity(Intent(this, StatusActivity::class.java))
+        }
     }
 
 

@@ -14,9 +14,8 @@ ext {
         //lifecycle
         //https://developer.android.google.cn/jetpack/androidx/releases/lifecycle#declaring_dependencies
         //==========================================================================================
-        def lifecycle_version = "2.3.0-alpha03"
         // ViewModel
-        implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+        implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.0-alpha04"
 
 
 
@@ -41,7 +40,7 @@ ext {
         // 事件总线
         // https://github.com/JeremyLiao/LiveEventBus
         //==========================================================================================
-//        implementation 'com.jeremyliao:live-event-bus-x:1.6.1'
+//        implementation 'com.jeremyliao:live-event-bus-x:1.7.2'
 
 
 

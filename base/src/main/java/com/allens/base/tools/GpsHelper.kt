@@ -1,4 +1,4 @@
-package com.allens.status
+package com.allens.base.tools
 
 import android.content.BroadcastReceiver
 import android.content.Context
@@ -17,7 +17,7 @@ object GpsHelper {
     fun register(
         context: Context, listener: OnGPSStatusChangeListener
     ) {
-        this.context = context
+        GpsHelper.context = context
         val filter = IntentFilter()
         filter.addAction(LocationManager.PROVIDERS_CHANGED_ACTION)
         receiver =

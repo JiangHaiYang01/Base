@@ -1,17 +1,19 @@
 package com.allens.base.activity
 
+import androidx.lifecycle.Observer
 import com.allens.base.R
 import com.allens.base.baseProvider.BaseActivity
+import com.allens.base.baseProvider.BaseApplication
+import com.allens.base.tools.LogTool
 import kotlinx.android.synthetic.main.activity_gestures.*
 
 //手势识别的sample
-class GesturesAct :BaseActivity(){
+class GesturesAct : BaseActivity() {
     override fun getContentViewId(): Int {
         return R.layout.activity_gestures
     }
 
     override fun initOnCreate() {
-
     }
 
 
@@ -30,8 +32,6 @@ class GesturesAct :BaseActivity(){
         super.onGesturesNarrow()
         tv_info.text = "缩小"
     }
-
-
 
 
 }

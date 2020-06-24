@@ -23,4 +23,9 @@ class MyApplication : BaseApplication() {
             .connectTimeout(10)
             .build(this)
     }
+
+    //开启网络监测
+    override fun setNewWorkStatus(): Boolean {
+        return true
+    }
 }

@@ -21,10 +21,12 @@ class LoginAct : BaseMVVMActivity<ActivityLoginBinding, LoginRepos, LoginViewMod
 
     //这里的接口主要是防止忘记绑定xml
     override fun initBindDataBing() {
+        //dataBind.viewModel 是在xml 自己定义的viewmodel
         dataBind.viewModel = viewModel
     }
 
 
+    //事件的处理建议放在这里，
     override fun initCreate() {
         login_btn_login.setOnClickListener {
             viewModel.login(et_phone.text.toString(), et_pwd.text.toString())
@@ -131,6 +133,7 @@ class LoginViewModel : BaseVM<LoginRepos>() {
 
 
     fun login(userName: String, pwd: String) {
+        //协成获取网络数据
         viewModelScope.launch {
             repos.login(userName, pwd, loginData)
         }
