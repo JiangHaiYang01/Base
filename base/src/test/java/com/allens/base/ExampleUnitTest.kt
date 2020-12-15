@@ -1,5 +1,6 @@
 package com.allens.base
 
+import com.allens.base.tools.*
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -17,6 +18,13 @@ class ExampleUnitTest {
 
     @Test
     fun hexHelperTest(){
+//        val hexString2Bytes = HexHelper.hexToByteArray("a00004009ba80000")
+//        println(HexHelper.byteArrayToString(hexString2Bytes))
+
+
+//        println(10.toInt16())
+//        println("a".toInt10())
+        println(10.toByteArray().toHex())
 
     }
 }
