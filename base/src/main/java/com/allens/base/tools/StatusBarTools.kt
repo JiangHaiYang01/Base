@@ -143,6 +143,10 @@ fun AppCompatActivity.setThemeSilence() {
         hideStatusBar()
         hideNavigationBar()
         hideActionBar()
+
+        controller?.addOnControllableInsetsChangedListener { _, _ ->
+            setThemeSilence()
+        }
     } else {
         window.decorView.systemUiVisibility = (
                 View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
@@ -156,5 +160,77 @@ fun AppCompatActivity.setThemeSilence() {
         window.decorView.setOnSystemUiVisibilityChangeListener {
             setThemeSilence()
         }
+
+        window.decorView.setOnApplyWindowInsetsListener { _, insets ->
+            setThemeSilence()
+            insets
+        }
+    }
+}
+
+object StatusBarTools {
+
+    //设置状态栏颜色
+    fun setStatusBarColor(activity: Activity, @ColorInt color: Int) {
+        activity.setStatusBarColor(color)
+    }
+
+    //设置导航栏颜色
+    fun setNavigationBarColor(activity: Activity, @ColorInt color: Int) {
+        activity.setNavigationBarColor(color)
+    }
+
+    //设置导航栏分隔线颜色
+    @RequiresApi(Build.VERSION_CODES.P)
+    fun setNavigationBarDividerColor(activity: Activity, @ColorInt color: Int) {
+        activity.setNavigationBarDividerColor(color)
+    }
+
+    //隐藏导航栏
+    fun hideActionBar(activity: AppCompatActivity) {
+        activity.hideActionBar()
+    }
+
+    //显示导航栏
+    fun showActionBar(activity: AppCompatActivity) {
+        activity.showActionBar()
+    }
+
+    //隐藏状态栏(电池栏)
+    fun hideStatusBar(activity: AppCompatActivity) {
+        activity.hideStatusBar()
+    }
+
+    //显示状态栏(电池栏)
+    fun showStatusBar(activity: AppCompatActivity) {
+        activity.showStatusBar()
+    }
+
+    //隐藏NavigationBar (此方法只是短暂隐藏 点击屏幕就会显示)
+    fun hideNavigationBar(activity: AppCompatActivity) {
+        activity.hideNavigationBar()
+    }
+
+    //显示NavigationBar
+    fun showNavigationBar(activity: AppCompatActivity) {
+        activity.showNavigationBar()
+    }
+
+    //设置状态栏(电池栏) 文案深色还是浅色
+    //true: 设置白色
+    //false:设置黑色
+    @RequiresApi(Build.VERSION_CODES.M)
+    fun setStatusBarContent(activity: AppCompatActivity, light: Boolean) {
+        activity.setStatusBarContent(light)
+    }
+
+    //透明状态栏
+    fun setThemeTransparent(activity: AppCompatActivity) {
+        activity.setThemeTransparent()
+    }
+
+    //沉寂式
+    fun setThemeSilence(activity: AppCompatActivity) {
+        activity.setThemeSilence()
     }
 }
