@@ -62,6 +62,10 @@ abstract class BaseMVVMFragment<V : ViewDataBinding, RE : BaseRepos, VM : BaseVM
     lateinit var dataBind: V
     lateinit var viewModel: VM
 
+    val repos by lazy {
+        viewModel.repos
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
