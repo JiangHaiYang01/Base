@@ -20,8 +20,8 @@ class MainFragment :
         dataBind.vm = viewModel
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+
+    override fun doViewCreate(view: View, savedInstanceState: Bundle?) {
         println("url-----> ${repos.mainModel.getImageURL()}")
         dataBind.imgTest.load(repos.mainModel.getImageURL())
     }
