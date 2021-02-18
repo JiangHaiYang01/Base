@@ -16,7 +16,7 @@ class NetWorkLiveData(private val context: Context) : LiveData<NetWorkStatus>(),
     }
 
     override fun onInactive() {
-        NetworkHelper.unRegister(context.applicationContext)
+//        NetworkHelper.unRegister(context.applicationContext)
     }
 
     override fun onNetWorkStatus(isMobileConn: Boolean, isWifiConn: Boolean) {

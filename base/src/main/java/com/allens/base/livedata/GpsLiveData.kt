@@ -15,7 +15,8 @@ class GpsLiveData(private val context: Context) : LiveData<Boolean>(), OnGPSStat
     }
 
     override fun onInactive() {
-        GpsHelper.unRegister(context)
+        //不注销。防止单例对象失效
+//        GpsHelper.unRegister(context)
     }
 
     override fun onGpsStatusChange(isOpen: Boolean) {

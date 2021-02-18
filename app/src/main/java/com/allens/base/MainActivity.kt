@@ -5,6 +5,8 @@ import android.os.Looper
 import android.widget.Toast
 import com.allens.base.base.*
 import com.allens.base.databinding.ActivityMainBinding
+import com.allens.base.livedata.FpsLiveData
+import com.allens.base.livedata.NetWorkLiveData
 import com.allens.base.tools.*
 import com.google.android.material.button.MaterialButton
 
@@ -29,51 +31,6 @@ class MainActivity : BaseMVVMActivity<ActivityMainBinding, MainRepos, MainViewMo
 
     override fun onCreate() {
         addFragment(MainFragment(), dataBind.linear.id)
-//        doTest()
-    }
-
-    private fun doTest() {
-        dataBind.linear.addView(MaterialButton(this).apply {
-            text = "隐藏导航栏"
-            setOnClickListener {
-                hideActionBar()
-            }
-        })
-
-        dataBind.linear.addView(MaterialButton(this).apply {
-            text = "显示导航栏"
-            setOnClickListener {
-                showActionBar()
-            }
-        })
-
-        dataBind.linear.addView(MaterialButton(this).apply {
-            text = "隐藏状态栏"
-            setOnClickListener {
-                hideStatusBar()
-            }
-        })
-
-
-        dataBind.linear.addView(MaterialButton(this).apply {
-            text = "显示状态栏"
-            setOnClickListener {
-                showStatusBar()
-            }
-        })
-
-
-        dataBind.linear.addView(MaterialButton(this).apply {
-            text = "隐藏Navigation"
-            setOnClickListener {
-                hideNavigationBar()
-
-                Handler(Looper.getMainLooper()).postDelayed({
-                    println("触发显示 navigation")
-                    showNavigationBar()
-                }, 1000)
-            }
-        })
     }
 }
 

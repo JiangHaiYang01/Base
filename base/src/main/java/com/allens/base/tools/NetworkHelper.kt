@@ -29,11 +29,21 @@ object NetworkHelper {
         val intentFilter = IntentFilter()
         intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE")
         receiver = NetworkChangeReceiver(listener)
-        context.registerReceiver(receiver, intentFilter)
+        context.applicationContext.registerReceiver(receiver, intentFilter)
     }
 
-    fun unRegister(context: Context) {
-        context.unregisterReceiver(receiver)
+    fun unRegister(context: Context){
+        unRegister(context){}
+    }
+
+    fun unRegister(context: Context, doFailed: (throwable: Throwable) -> Unit) {
+        try {
+            context.applicationContext.unregisterReceiver(receiver)
+        } catch (throwable: Throwable) {
+            doFailed(throwable)
+            println("unRegister netWork failed :${throwable.message}")
+        }
+
     }
 
 
